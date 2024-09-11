@@ -1,0 +1,155 @@
+/* Base Styles */
+* {
+  font-family: Calibri, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.contact-container {
+  width: 100%;
+  height: auto;
+}
+
+.contact-us {
+  display: flex;
+  font-size: 4rem;
+  font-weight: bolder;
+  text-shadow: 2px 5px 8px gray;
+  margin-bottom: 4%;
+  color: #1b1b1b;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+.form-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 7%;
+  margin-top: 8%;
+  margin-bottom: 3.5rem;
+}
+
+.name-group {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+}
+
+.email-text,
+.message-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+  margin-right: 5%;
+}
+
+.name-input {
+  width: 100%;
+  height: 40px;
+}
+.email-input {
+  height: 40px;
+  width: 100%; /* Make full width */
+  max-width: 40rem; /* Max width to keep large screens consistent */
+}
+
+input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  box-shadow: 0px 0px 2px gray;
+  padding: 1%;
+}
+input:focus,
+.message-input:focus {
+  border: 2px solid dodgerblue;
+}
+
+label {
+  margin-bottom: 1%;
+}
+
+.message-input {
+  width: 100%; /* Make full width */
+  max-width: 40rem; /* Max width to keep large screens consistent */
+  height: 100px;
+  margin-bottom: 1%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px gray;
+  padding: 1%;
+}
+
+.contact-form button {
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 100%; /* Make full width */
+  max-width: 40rem; /* Max width to keep large screens consistent */
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 5%;
+  font-size: 1rem;
+}
+
+/* Small Devices (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+  .name-group {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: 0;
+  }
+  .name-group {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  .name-input,
+  .email-input,
+  textarea,
+  button {
+    width: 100%;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Medium Devices (max-width: 900px) */
+@media only screen and (max-width: 900px) {
+  form {
+    width: 80%;
+    margin-left: 2%;
+    margin-top: 5%;
+  }
+
+  .name-group {
+    margin-bottom: 3%;
+  }
+}
+
+/* Large Devices (max-width: 1200px) */
+@media only screen and (max-width: 1200px) {
+  form {
+    width: 60%;
+    margin-left: 5%;
+    margin-top: 6%;
+  }
+
+  .name-group {
+    margin-bottom: 4%;
+  }
+}

@@ -1,0 +1,52 @@
+:root {
+  --gold-color: #c3a71d;
+  --gray-color: #747474;
+  --dark-color: #1e1e1e;
+}
+
+.footer-container {
+  display: flex;
+  background-color: var(--dark-color);
+  color: white;
+  padding: 2.5rem;
+  bottom: 0;
+  width: 100%;
+  gap: 1rem;
+}
+.gramophone {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  justify-content: space-between;
+  /* background-color: aqua; */
+}
+.gramophone h3 {
+  color: var(--gold-color);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+.social-links img {
+  width: 1.5rem;
+}
+.topic {
+  flex: 1;
+  /* background-color: antiquewhite; */
+}
+.topic h4 {
+  margin-bottom: 1rem;
+}
+.topic ul li {
+  list-style: none;
+  margin-bottom: 1rem;
+  color: var(--gray-color);
+}
+
+@media (max-width: 400px) {
+  .topic {
+    display: none;
+  }
+}

@@ -1,0 +1,82 @@
+:root {
+  --gold-color: #c3a71d;
+  --gray-color: #747474;
+  --light-color: #fff;
+  --box-shadow: 2px 2px 10px rgb(195, 195, 195);
+}
+
+.admin_main {
+  width: 100%;
+  background-color: var(--light-color);
+}
+.admin_section_1 {
+  padding: 5rem;
+  padding-top: 1.5rem;
+  height: 100vh;
+}
+.admin_section_1 article {
+  margin-bottom: 1.5rem;
+}
+.admin_top {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.admin_top div {
+  /* background-color: beige; */
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 5px;
+}
+.admin_top div p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.admin_top div h3 {
+  color: var(--gold-color);
+  font-size: 2rem;
+}
+
+.admin_control {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.admin_control div {
+  flex: 1;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 3rem 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 300ms;
+}
+.admin_control div:hover {
+  transform: scale(1.05);
+}
+.annoucements_section {
+  margin-top: 2rem;
+}
+.annoucements_section h2 {
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+.annoucements_section p {
+  color: var(--gray-color);
+}
+
+/* media queries for responsiveness */
+@media (max-width: 500px) {
+  .admin_section_1 {
+    padding: 1rem;
+  }
+}

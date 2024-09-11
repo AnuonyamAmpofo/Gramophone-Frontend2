@@ -1,0 +1,145 @@
+.student_tab_main {
+  width: 100%;
+}
+.student_tab_main section {
+  padding: 5rem;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.student_tab_main section h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+.student_tab_main article {
+  width: 100%;
+}
+
+.student_tab_main article h2 {
+  color: #000;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.add_students,
+.assign_students,
+.delete_students {
+  width: 100%;
+  margin: 0;
+}
+.assign_students {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.add_students div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.add_students div input,
+.delete_students input {
+  height: 2.5rem;
+  min-width: 15rem;
+}
+.assign_students input {
+  height: 2.5rem;
+  width: 15rem;
+}
+
+.add_students select,
+.assign_students select {
+  border: none;
+  outline: none;
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px gray;
+}
+.assign_students input {
+  align-self: center;
+  margin-top: 6px;
+}
+.add_students select:focus,
+.assign_students select:focus {
+  border: 2px solid dodgerblue;
+}
+
+.delete_students {
+  margin-bottom: 1rem;
+}
+.add_students button,
+.assign_students button,
+.delete_students button,
+.student_details_section button {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.assign_students button {
+  margin: 0;
+}
+.student_details_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.student_details_section button {
+  align-self: flex-end;
+  max-width: 100%;
+  margin: 0;
+}
+
+.student_details {
+  height: 15rem;
+  width: 25rem;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  padding: 0.5rem;
+  /* background-color: tan; */
+}
+
+@media (max-width: 590px) {
+  .add_students button,
+  .assign_students button,
+  .delete_students button {
+    margin: 0;
+    margin-top: 1rem;
+  }
+  .add_students input,
+  .add_students select,
+  .delete_students input,
+  .student_details_section button {
+    width: 100%;
+  }
+  .add_students select {
+    margin-top: 1rem;
+  }
+  .student_details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .student_tab_main section {
+    padding: 1rem;
+  }
+  .add_students select {
+    margin-top: 1rem;
+  }
+  .assign_students button {
+    margin-top: 0;
+  }
+}

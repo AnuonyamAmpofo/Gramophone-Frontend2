@@ -1,0 +1,155 @@
+:root {
+  --gold-color: #c3a71d;
+  --gray-color: #747474;
+}
+
+.main-content {
+  width: 100%;
+  height: auto;
+}
+.welcome-msg {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+  margin-bottom: 50px;
+}
+.container-1 {
+  width: 100%;
+  height: auto;
+  padding: 5rem;
+  margin-bottom: 50px;
+}
+.container-1 h2 {
+  color: #000;
+}
+.wrapper-1 {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin-bottom: 40px;
+}
+.wrapper-1 p {
+  color: var(--gray-color);
+}
+.sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  height: fit-content;
+  /* background-color: aqua; */
+  padding: 20px;
+  padding-right: 0;
+  gap: 10px;
+  border: 1.5px solid #d8d8d8;
+  border-radius: 7px;
+}
+.sessions-text {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.sessions h2 {
+  font-size: 1.8rem;
+}
+.sessions h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gold-color);
+}
+
+.email {
+  color: gray;
+}
+.heading {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.wrapper-2 {
+  padding: 30px;
+  padding-bottom: 1.25rem;
+  border: 1.5px solid rgb(216, 216, 216);
+  border-radius: 7px;
+}
+.wrapper-2 h3 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+/* Instructor Timetable */
+.id-column,
+.name-column,
+.time-column {
+  text-transform: uppercase;
+}
+
+.id-column {
+  font-weight: 600;
+  width: 20%;
+}
+.name-column {
+  width: 20%;
+  text-align: left;
+}
+.time-column {
+  width: 60%;
+  color: var(--gold-color);
+  text-align: right;
+}
+
+/* Timetable styles */
+.announcement {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  table-layout: auto;
+}
+.announcement tbody {
+  margin-bottom: 100px;
+}
+.main-column,
+.middle-column,
+.last-column {
+  text-transform: uppercase;
+}
+
+.main-column {
+  font-weight: 600;
+  width: 20%;
+}
+.middle-column {
+  width: 70%;
+  text-align: center;
+}
+.last-column {
+  width: 20%;
+  color: var(--gold-color);
+}
+.announcement tr {
+  border-bottom: 1.5px solid rgb(216, 216, 216);
+}
+.announcement .trombone {
+  border: none;
+}
+.announcement td {
+  height: 40px;
+}
+.table-heading {
+  color: rgb(113, 113, 113);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media (max-width: 790px) {
+  .wrapper-1 {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 450px) {
+  .container-1 {
+    padding: 1rem;
+  }
+}

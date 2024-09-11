@@ -1,0 +1,52 @@
+.infoCard {
+    width: 20rem;
+    height: 8rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    margin: 2rem; /* Centering the card with automatic left and right margins */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: normal;
+    padding: 1rem;
+    transition: all 0.3s ease; /* Adding a transition for smooth resizing */
+    outline-style: solid;
+    outline-color: rgb(215, 215, 215);
+    outline-width: 0.5px;
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .infoCard {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    .infoCard {
+        width: 95%;
+        padding: 1rem;
+    }
+}
+
+h1 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: goldenrod;
+}
+
+table {
+    border-collapse: collapse;
+  
+}
+
+
