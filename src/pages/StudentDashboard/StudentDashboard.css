@@ -28,38 +28,68 @@
   height: inherit;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 35px;
   margin-bottom: 40px;
+  
+}
+
+.wrapper-1 :hover{
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 .wrapper-1 p {
   color: var(--gray-color);
 }
+.course-link  {
+   text-decoration: none;
+  color: inherit;
+  width: inherit;         
+  /* display: block;         */
+}
+
+.course-link a:hover {
+  text-decoration: none;
+  
+}
+
+/* General styling for sessions */
 .sessions {
   display: flex;
   flex-direction: column;
   gap: 20px;
   flex: 1;
   height: fit-content;
-  /* background-color: aqua; */
   padding: 20px;
   padding-right: 0;
-  gap: 10px;
   border: 1.5px solid #d8d8d8;
   border-radius: 7px;
+  /* width: 100%; */
+  box-shadow: 0 3px 13px rgba(0, 0, 0, 0.5);
 }
-.sessions-text {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
+
+/* .sessions :hover{
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+} */
+
+/* Adjust for the content within the sessions */
 .sessions h2 {
+  text-decoration: none;
   font-size: 1.8rem;
+  color: #000;
 }
+
 .sessions h3 {
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--gold-color);
 }
+
+.sessions-text {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
 
 .email {
   color: gray;
@@ -110,7 +140,6 @@
   margin-bottom: 100px;
 }
 .main-column,
-.middle-column,
 .last-column {
   text-transform: uppercase;
 }
@@ -120,11 +149,14 @@
   width: 20%;
 }
 .middle-column {
-  width: 70%;
+  width: 68%;
   text-align: center;
+  text-wrap: wrap;
+  /* margin-left: 10px; */
 }
 .last-column {
   width: 20%;
+
   color: var(--gold-color);
 }
 .announcement tr {

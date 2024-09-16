@@ -44,6 +44,24 @@ More requirements will be added in due course.
 
 
 //FOR Backend
-1)Create a 'change password' API
-2)Create a 'forgot password' API where they can use probably t
+(1)Create a 'change password' API
+(2)Create a 'forgot password' API where they can use probably t
 
+
+Make sure you check why the sp.user_id does not show the name for the instructor as it does for the student. -DOne
+
+The announcements on the student Dashboard should have 3 parts and justified space between - DONE
+
+*Create a Course Detail page that appears when the user clicks on the course card(only for instructors and admins)-
+    ~Should have 
+        -Course Code
+        -Day
+        -Number of Students
+        -List of Students and session times (with the dropdown...)
+        -Announcements Section(which shows the list of announcements)
+        -A small, "Post and Announcement section(with "title" and "Content" boxes )"
+
+
+
+*Create a part for individual comments for students by instructor and admin as well - 
+    ~When the instructor clicks on the student in the list of students, a dropdown menu appears with the details of the student, and a portion for comments with a post comment button.

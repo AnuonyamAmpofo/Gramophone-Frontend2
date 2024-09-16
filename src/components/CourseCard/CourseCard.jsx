@@ -8,13 +8,18 @@ const getImageURL = (courseCode) => {
   if (courseCode.startsWith("Drum")) {
     return "/assets/Images/Drum PIC.jpg"; // Path to drum image
   }
-  // Add more conditions for other course types if needed
-  // For example:
-  // if (courseCode.startsWith("Piano")) {
-  //   return "/assets/images/piano.png";
-  // }
+  else if (courseCode.startsWith("Gui")){
+    return "/assets/Images/guitar.jpg"
+  }else if (courseCode.startsWith("Piano")){
+    return "/assets/Images/piano.jpg"
+  }else if (courseCode.startsWith("Violin")){
+    return "/assets/Images/violin.jpg"
+  }
+  else if(courseCode.startsWith("Sax")){
+    return "/assets/Images/sax.jpg"
+  }
 
-  // Default image if no match is found
+  
   return "/assets/images/default.png";
 };
 
@@ -23,8 +28,22 @@ const CourseCard = ({ course }) => {
 
   useEffect(() => {
     const fetchAnnouncements = async () => {
+      
       try {
-        const response = await fetch(`https://ampsgramophone-backend.vercel.app/courses/${course.courseCode}/announcements`); // Adjust URL as needed
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("No token found");
+          return;
+        }
+        const response = await fetch(`https://ampsgramophone-backend.vercel.app/students/courses/${course.courseCode}/getcourseannouncements`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ); // Adjust URL as needed
         const data = await response.json();
         if (response.ok) {
           setAnnouncements(data.announcements);
@@ -32,7 +51,7 @@ const CourseCard = ({ course }) => {
           console.error("Failed to fetch announcements:", data.message);
         }
       } catch (err) {
-        console.error("Error fetching announcements:", err);
+        // console.error("Error fetching announcements:", err);
       }
     };
 
@@ -40,21 +59,21 @@ const CourseCard = ({ course }) => {
   }, [course.courseCode]);
 
   return (
-    <section className="course">
+    <section className="course" id={course.courseCode}>
       <article className="course-1">
         <div className="course-info">
-          <h2>{course.courseCode}</h2> {/* Using courseCode */}
+          <h2>{course.courseCode}</h2> 
           <div>
             <p>Instructor</p>
-            <h3>{course.instructorName}</h3>
+            <h3><strong>{course.instructorName}</strong></h3>
           </div>
           <div>
             <p>Day</p>
-            <h3>{course.day}</h3> {/* Original field names */}
+            <h3><strong>{course.day}</strong></h3> 
           </div>
           <div>
             <p>Time</p>
-            <h3>{course.time}</h3> {/* Original field names */}
+            <h3><strong>{course.time}</strong></h3>
           </div>
         </div>
         <img src={getImageURL(course.courseCode)} alt={course.courseCode} className="course-image" />
@@ -65,7 +84,7 @@ const CourseCard = ({ course }) => {
           {announcements.length > 0 ? (
             <ul>
               {announcements.map((announcement) => (
-                <li key={announcement._id}>{announcement.message}</li> // Adjust according to your announcement schema
+                <li key={announcement._id} className='Announcement-list'>{announcement.content}</li> // Adjust according to your announcement schema
               ))}
             </ul>
           ) : (

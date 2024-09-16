@@ -1,4 +1,5 @@
 import  { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import NavbarStudent from "../../components/Navbar2/NavbarStudent";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import "./StudentCourses.css";
@@ -6,6 +7,7 @@ import "./StudentCourses.css";
 function StudentCourses() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -33,6 +35,15 @@ function StudentCourses() {
 
     fetchCourses();
   }, []);
+  useEffect(() => {
+    const hash = window.location.hash; // Get the URL fragment (e.g., #courseCode)
+    if (hash) {
+      const courseElement = document.querySelector(hash); // Find the element with matching ID
+      if (courseElement) {
+        courseElement.scrollIntoView({ behavior: "smooth" }); // Scroll to the course
+      }
+    }
+  }, [courses])
 
   return (
     <div className="landing_page_container">

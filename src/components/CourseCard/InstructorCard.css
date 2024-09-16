@@ -1,0 +1,110 @@
+:root {
+    --gold-color: #c3a71d;
+    --gray-color: #747474;
+    --dark: #000;
+    --light-background: #f9f9f9;
+    --border-radius: 12px;
+  }
+  body{
+    overflow-x: initial;
+  }
+  
+
+.course-card {
+    
+    gap: 2.25rem;
+    padding: 1rem 3rem;
+    background-color: var(--light-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.2s ease-in-out;
+    margin-bottom: 2.0rem;
+    /* margin-top: -4rem; */
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    
+  }
+  
+  .course-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  }
+  
+  .course-1{
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* align-self: center; */
+  }
+  .course-2{
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .course-image {
+    max-width: 100%;
+    max-height: 300px;
+   
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5)
+  }
+  
+  .course-details {
+    /* flex: 2; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .course-name {
+    font-size: 3.5rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+  
+  .course-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* margin-top: 1rem; */
+  }
+  
+  .course-info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .course-info-label {
+    font-size: 1.25rem;
+    color: var(--gray-color);
+  }
+  
+  .course-info-value {
+    font-size: 1.75rem;
+    color: var(--gold-color);
+  }
+  
+  @media (max-width: 768px) {
+    .course-card {
+        /* justify-self: center; */
+      display: flex;
+        flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: auto;
+      /* margin */
+    }
+  
+    .course-image {
+      max-width: 90%;
+      max-height: 300px;
+    }
+  
+    .course-info-group {
+      flex-direction: column;
+    }
+  }

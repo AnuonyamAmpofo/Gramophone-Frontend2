@@ -19,8 +19,16 @@ const Modal = ({ show, handleClose }) => {
     setPassword(e.target.value);
   };
 
+  // Function to handle Enter key press
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit(e); // Trigger form submission when "Enter" is pressed
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await fetch("https://ampsgramophone-backend.vercel.app/login", {
@@ -59,8 +67,7 @@ const Modal = ({ show, handleClose }) => {
     } catch (err) {
       console.error("Login error:", err);
       setError("An error occurred during login. Please try again.");
-    }
-    finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -81,6 +88,7 @@ const Modal = ({ show, handleClose }) => {
               id="username"
               value={username}
               onChange={handleUsernameChange}
+              onKeyPress={handleKeyPress} // Listen for "Enter" key press
               required
             />
           </div>
@@ -91,6 +99,7 @@ const Modal = ({ show, handleClose }) => {
               id="password"
               value={password}
               onChange={handlePasswordChange}
+              onKeyPress={handleKeyPress} // Listen for "Enter" key press
               required
             />
           </div>
