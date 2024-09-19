@@ -101,7 +101,9 @@ p{
   margin: 5px 0;
   margin-top: 15px;
   text-wrap: wrap;
-  word-wrap: break-word;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .announcement-date {
