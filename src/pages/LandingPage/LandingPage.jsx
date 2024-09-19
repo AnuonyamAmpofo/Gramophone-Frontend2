@@ -72,7 +72,7 @@ function LandingPage() {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <h1 className="welcome-text">
-          WELCOME TO OU <br />
+          WELCOME TO OUR <br />
           STUDENT SERVICES
         </h1>
         <p style={{ color: "#fff" }}>WE ARE GLAD TO HAVE YOU HERE WITH US.</p>
