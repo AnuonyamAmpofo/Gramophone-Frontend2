@@ -61,7 +61,12 @@ The announcements on the student Dashboard should have 3 parts and justified spa
         -Announcements Section(which shows the list of announcements)
         -A small, "Post and Announcement section(with "title" and "Content" boxes )"
 
-
+DONE
 
 *Create a part for individual comments for students by instructor and admin as well - 
-    ~When the instructor clicks on the student in the list of students, a dropdown menu appears with the details of the student, and a portion for comments with a post comment button.
+    ~When the instructor clicks on the student in the list of students, a dropdown menu appears with the details of the student, and a portion for comments with a post comment button. - DONE
+
+
+
+
+*When the instructor clicks on an announcement, an overlaying info box (like the one for login) should display "Edit" or "Delete"

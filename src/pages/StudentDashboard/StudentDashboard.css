@@ -47,10 +47,10 @@
   /* display: block;         */
 }
 
-.course-link a:hover {
+/* .course-link a:hover {
   text-decoration: none;
   
-}
+} */
 
 /* General styling for sessions */
 .sessions {
@@ -67,9 +67,9 @@
   box-shadow: 0 3px 13px rgba(0, 0, 0, 0.5);
 }
 
-/* .sessions :hover{
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-} */
+.sessions :hover{
+  box-shadow: none
+}
 
 /* Adjust for the content within the sessions */
 .sessions h2 {

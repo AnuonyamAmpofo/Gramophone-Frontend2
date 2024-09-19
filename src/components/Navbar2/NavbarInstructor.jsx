@@ -45,7 +45,7 @@ const NavbarInstructor = () => {
   };
   return (
     <nav className="nav-bar2">
-      <img className="logo" src="assets\Grammophone2 2.png" alt="" />
+      <img className="logo" src="/assets/Grammophone2 2.png" alt="" />
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>

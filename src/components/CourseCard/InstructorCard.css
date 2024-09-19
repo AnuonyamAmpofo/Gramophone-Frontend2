@@ -35,12 +35,12 @@
     display: flex;
     /* flex: 1; */
     flex-direction: column;
-    /* justify-content: space-around; */
+    /* justify-content: space-evenly !important; */
     /* align-self: center; */
   }
   .course-2{
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   
@@ -57,7 +57,7 @@
     /* flex: 2; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   
   .course-name {
