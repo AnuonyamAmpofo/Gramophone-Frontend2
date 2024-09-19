@@ -3,7 +3,15 @@
   --gray-color: #747474;
   --light-color: #fff;
 }
-
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  /* margin-top: 3rem; */
+  /* background-color: #f9f9f9; */
+}
 .dashboard_main {
   width: 100%;
   background-color: var(--light-color);
@@ -14,11 +22,28 @@
   /* background-color: beige; */
   padding: 5rem;
 }
+.Today{
+  color: var(--gold-color);
+  font-size: 1.7rem;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding-top: 2rem;
+  /* margin-bottom: -10px; */
+  align-content: center;
+  align-self: center;
+  margin: 0 auto -5.6rem;
+  width: 80%;
+  /* height: 0%; */
+}
 
-.dashboard_section h1 {
+.dashboard_main h1 {
   font-size: 2.4rem;
   font-weight: 500;
   color: #000;
+  font-family: Georgia;
+  margin-bottom: 0rem;
+  padding-top: 4rem;
   text-align: center;
 }
 
@@ -85,9 +110,22 @@
   text-transform: uppercase;
   font-size: 1.2rem;
 }
+.courses_grid .course-card{
+  height:80% ;
+  scale: 90%;
+  margin-bottom: -20px !important;
+  cursor: pointer;
+  /* margin-left:  */
+}
+.courses_grid{
+  margin-bottom: 20px;
+}
 
 @media (max-width: 450px) {
   .dashboard_section {
     padding: 1rem;
+  }
+  .Today{
+    margin: 0 auto -1.5rem;
   }
 }

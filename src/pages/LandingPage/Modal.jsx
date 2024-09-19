@@ -50,6 +50,7 @@ const Modal = ({ show, handleClose }) => {
           icon: "success",
           title: "Login Successful",
           text: `Welcome ${data.sp_userId}`,
+          confirmButtonText: "Proceed..."
         });
 
         setError("");
