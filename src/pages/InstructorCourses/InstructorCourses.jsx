@@ -4,10 +4,11 @@ import "./InstructorCourses.css";
 import InstructorTimetable from '../../components/Timetable/InstuctorTimetable';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { ClipLoader } from "react-spinners";
 
 const InstructorCourses = () => {
   const [coursesByDay, setCoursesByDay] = useState({}); // Object to store courses by day
-
+  const [isLoading, setIsLoading]= useState(true);
   useEffect(() => {
     const fetchCoursesData = async () => {
       try {
@@ -45,12 +46,16 @@ const InstructorCourses = () => {
         setCoursesByDay(groupedCourses);
       } catch (err) {
         console.error("Error fetching instructor courses data:", err);
+      }finally{
+        setIsLoading(false)
       }
     };
 
     fetchCoursesData();
   }, []);
-
+  
+  
+  
   const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   return (
@@ -59,7 +64,12 @@ const InstructorCourses = () => {
       <section className="courses_section">
         <h2 className="courses_heading">COURSES</h2>
         <div className="instructor_courses">
-          {daysOfTheWeek.map((day) => (
+          {isLoading ? (
+            <div className="loading-screens">
+            <ClipLoader color={"#463c06"} size={100} />
+            </div>
+          ) : ( 
+          daysOfTheWeek.map((day) => (
             coursesByDay[day] && (
               <div key={day} className="courses_by_day">
                 <h3 className="dayName">{day}</h3>
@@ -78,19 +88,14 @@ const InstructorCourses = () => {
                 ))}
               </div>
             )
-          ))}
+          ))
+        )}
+          
+          
         </div>
-        <article className="wrapper-2">
-          <h3>List of students with their session</h3>
-          <InstructorTimetable />
-        </article>
+       
       </section>
-      <section className="announcements">
-        <div>
-          <h2>ANNOUNCEMENTS</h2>
-          <p>All specific announcements for this course go here!!</p>
-        </div>
-      </section>
+      
     </div>
   );
 };

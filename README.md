@@ -69,4 +69,5 @@ DONE
 
 
 
-*When the instructor clicks on an announcement, an overlaying info box (like the one for login) should display "Edit" or "Delete"
+*When the instructor clicks on an announcement, an overlaying modal box (like the one for login) should display "Edit" or "Delete" - DONE
+

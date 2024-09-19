@@ -5,6 +5,14 @@
   --light-background: #f9f9f9;
   --border-radius: 12px;
 }
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-color: #f9f9f9;
+}
 h1{
   font-family: Impact;
 }
@@ -82,6 +90,103 @@ p{
 }
 
 
+
+/* Modal Content */
+.modal-overlays {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  /* align-content: center; */
+}
+
+.modal-contents {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 90%;
+  align-self: center;
+  /* align-items: center; */
+  text-align: center;
+
+}
+.modal-contents button{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row ;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  border-radius: var(--border-radius);
+  border-color: #fff;
+  border: 0;
+  background-color: var(--gold-color);
+  
+
+}
+.modal-contents button:hover{
+  background-color: #ffd91b;
+  cursor: pointer;
+  color: #000;
+}
+.modal-contents button:active{
+  background-color: #d7b717;
+  cursor: pointer;
+  color: #000;
+}
+.modal-contents button:hover p{
+  /* background-color: #ffd91b; */
+  cursor: pointer;
+  color: #000;
+}
+.modal-contents button p{
+  font-weight: bolder;
+  font-size: larger;
+  color: #f2f2f2;
+}
+.modal-contents h4{
+  font-size: 1.5rem;
+}
+.modal-contents input{
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.textarea{
+  padding: 0.5rem 1rem 1rem 1rem;
+  font-size: 1rem;
+}
+.Edit{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 0 auto
+
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* justify-self: center; */
+  /* align-content: center; */
+  margin: 0 auto;
+  align-items: center !important;
+  width: 90%;
+  gap: 10%
+
+}  
+
+
 .announcement {
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -90,8 +195,12 @@ p{
   
   max-width: 500%;
   background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);;
 }
-
+.announcements-section :hover{
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
 .announcement h4 {
   margin: 0;
   font-size: 1.2em;
@@ -154,18 +263,28 @@ p{
   background-color: #45a049;
 }
 
-.post-announcement-section, .announcements-section {
+.post-announcement-section .announcements-section {
   margin-top: 30px;
 }
 
 
 @media (max-width: 1200px) {
-
+.course-detail-container{
+  /* display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  align-self: center; */
+  margin: 0 auto !important;
+}
 .course-title{
   font-size: 60px;
+  align-items: center;
+  /* margin: 0 auto !important; */
 }
 .short-details p{
   font-size: 20px;
+  justify-content: center;
 }
 .announcement-input, .announcement-textarea, .comment-textarea{
   align-items: center;

@@ -69,7 +69,7 @@ function LandingPage() {
 
       <div
         className="section-1"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${backgroundImage})`}}
       >
         <h1 className="welcome-text">
           WELCOME TO OUR <br />

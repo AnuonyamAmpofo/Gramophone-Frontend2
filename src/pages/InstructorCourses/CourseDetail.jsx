@@ -15,7 +15,20 @@ const CourseDetail = () => {
   const [expandedStudent, setExpandedStudent] = useState(null); // Track expanded student for dropdown
   const [studentData, setStudentData]= useState(null);
   const [loadingStudent, setLoadingStudent] = useState(null);
-  const [visibleAnnouncements, setVisibleAnnouncements] = useState(3)
+  const [visibleAnnouncements, setVisibleAnnouncements] = useState(3);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editTitle, setEditTitle] = useState("");
+  const [editContent, setEditContent] = useState("");
+  const [editAnnouncementId, setEditAnnouncementId] = useState(null);
+  const [isPostingAnnouncement, setIsPostingAnnouncement] = useState(false);
+  const [isPostingComment, setIsPostingComment] = useState(false);
+  const [isPostingEdit, setIsPostingEdit] = useState(false);
+  const [isDeletingAnnouncement, setIsDeletingAnnouncement]= useState(false);
+
+
+
 
   // Fetch course data
   const fetchCourseData = async () => {
@@ -64,10 +77,94 @@ const CourseDetail = () => {
       console.error("Error fetching announcements:", error);
     }
   };
+  const handleEditClick = (announcement) => {
+    setEditTitle(announcement.title);
+    setEditContent(announcement.content);
+    setEditAnnouncementId(announcement._id);
+    setIsEditModalOpen(true);
+  };
+  
+  const handlePostEdit = async (announcementId) => {
+    setIsPostingEdit(true);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(
+        `https://ampsgramophone-backend.vercel.app/instructors/courses/${courseCode}/announcement/${announcementId}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title: editTitle, content: editContent }),
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to edit announcement");
+      }
+  
+      console.log(`Announcement ${announcementId} updated`);
+      setAnnouncements(announcements.map((a) =>
+        a._id === announcementId ? { ...a, title: editTitle, content: editContent } : a
+      ));
+      setIsEditModalOpen(false);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Error editing announcement:", error);
+    } finally{
+      setIsPostingEdit(false);
+    }
+  };
+  const handleAnnouncementClick = (announcement) => {
+    setSelectedAnnouncement(announcement);
+    setIsModalOpen(true);
+  };
+  
+  
+
+  const handleCloseModal =() =>{
+    setIsModalOpen(false);
+    setSelectedAnnouncement(null);
+  }
+
+  
+  const handleDeleteAnnouncement = async (announcementId) => {
+    setIsDeletingAnnouncement(true);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(
+        `https://ampsgramophone-backend.vercel.app/instructors/courses/${courseCode}/announcement/${announcementId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to delete announcement");
+      }
+  
+      console.log(`Announcement ${announcementId} deleted`);
+      // Remove the deleted announcement from state
+      setAnnouncements(announcements.filter((a) => a._id !== announcementId));
+      setIsEditModalOpen(false);
+      setIsModalOpen(false); // Close modal if open
+    } catch (error) {
+      console.error("Error deleting announcement:", error);
+    }finally{
+      setIsDeletingAnnouncement(false)
+    }
+  };
+  
 
   // Handle posting a new announcement
   const handlePostAnnouncement = async (e) => {
     e.preventDefault();
+    setIsPostingAnnouncement(true)
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(`https://ampsgramophone-backend.vercel.app/instructors/courses/${courseCode}/announcement`, {
@@ -91,6 +188,8 @@ const CourseDetail = () => {
       setAnnouncementContent("");
     } catch (error) {
       console.error("Error posting announcement:", error);
+    } finally{
+      setIsPostingAnnouncement(false);
     }
   };
 
@@ -115,7 +214,8 @@ const CourseDetail = () => {
       setStudentComments("")
     } catch (error) {
       console.error("Error posting comment:", error);
-    }
+    } 
+    
   };
 
   // Toggle expanded student details
@@ -160,7 +260,17 @@ const CourseDetail = () => {
     fetchAnnouncements();
   }, [courseCode]);
 
-  if (!courseData) return <p>Loading...</p>;
+  if (!courseData) return (
+    <>
+    <NavbarInstructor/>
+      <div className="loading-screen">
+    
+        <ClipLoader color={"#463c06"} size={100} />
+        {/* <Footer />  */}
+      </div>
+      </>
+    );
+
 
   return (
     <>
@@ -240,13 +350,14 @@ const CourseDetail = () => {
 
         {/* Announcements Section */}
         <section className="announce">
-        <div className="announcements-section">
+        
           <h3>Announcements</h3>
+          <div className="announcements-section">
           {announcements.length > 0 ? (
             <>
             {announcements.slice(0, visibleAnnouncements).map((announcement) => (
             
-              <div key={announcement._id} className="announcement">
+              <div key={announcement._id} className="announcement" onClick={() => handleAnnouncementClick(announcement)}>
                 <h4>{announcement.title}</h4>
                 <p>{announcement.content}</p>
                 <p className="announcement-date">
@@ -265,6 +376,47 @@ const CourseDetail = () => {
           )}
         </div>
 
+        {isModalOpen && (
+          <div className="modal-overlays">
+            <div className="modal-contents">
+              <h4>Announcement Options</h4>
+              <div className= "buttons"> 
+              <button className="btn-modal" onClick={() => handleEditClick(selectedAnnouncement)}><p>Edit</p></button>
+              <button className="btn-modal" onClick={() => handleDeleteAnnouncement(selectedAnnouncement._id)}>
+                {isDeletingAnnouncement ? (
+              <ClipLoader color={"#463c06"} size={25} />
+            ) : (<p>Delete</p>)}</button>
+              <button className="btn-modal" onClick={handleCloseModal}><p>Close</p></button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        
+        {isEditModalOpen && (
+          <div className="modal-overlays">
+            <div className="modal-contents">
+              <h4>Edit Announcement</h4>
+              <div className="Edit">
+              <input
+                type="text"
+                value={editTitle}
+                onChange={(e) => setEditTitle(e.target.value)}
+              />
+              <textarea
+                value={editContent}
+                onChange={(e) => setEditContent(e.target.value)}
+                className="textarea"
+              />
+              </div>
+              <div className="buttons">
+              <button  onClick={() => handlePostEdit(editAnnouncementId)}>{isPostingEdit ? (<ClipLoader color={"#463c06"} size={30} />):(<p>Post Edit</p>)}</button>
+              <button  onClick={() => setIsEditModalOpen(false)}><p>Cancel</p></button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Post Announcement Section */}
         <div className="post-announcement-section">
           <h3 className="post-heading">Post an Announcement</h3>
@@ -282,7 +434,12 @@ const CourseDetail = () => {
               value={announcementContent}
               onChange={(e) => setAnnouncementContent(e.target.value)}
             />
-            <button className="btn-post" type="submit">Post</button>
+            <button className="btn-post" type="submit">{isPostingAnnouncement ? (
+              <ClipLoader color={"#463c06"} size={30} />
+            ) : (
+              "Post"
+            )}</button>
+            
           </form>
         </div>
         </section>
