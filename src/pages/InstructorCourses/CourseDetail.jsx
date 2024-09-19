@@ -206,7 +206,7 @@ const CourseDetail = () => {
                           <p><strong>Email: </strong>{studentData.email}</p>
                           <p><strong>Phone: </strong>0{studentData.contact}</p>
                           
-                          {/* Comment Section */}
+                          {/* Commen t Section */}
                           <form
                             onSubmit={(e) => {
                               e.preventDefault();
