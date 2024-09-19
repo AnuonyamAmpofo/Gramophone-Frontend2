@@ -101,6 +101,7 @@ p{
   margin: 5px 0;
   margin-top: 15px;
   text-wrap: wrap;
+  word-wrap: break-word;
 }
 
 .announcement-date {
