@@ -38,7 +38,7 @@ const Announcement = () => {
   }, []);
 
   return (
-    <table className="announcement">
+    <table className="announcementss">
       <thead>
         <tr>
           <td className="table-heading main-column">Courses</td>

@@ -102,14 +102,16 @@ const InstructorDashboard = () => {
                 todayCourses.map(course => (
                   <Link key={course.courseCode} to={`/courseDetail/${course.courseCode}`} className="course-link">
                     <InstructorCourseCard
-                      course={{
-                        id: course.courseCode,
-                        name: course.courseCode,
-                        instructorName: course.instructorName,
-                        dayOfSession: course.day,
-                        numberOfStudents: course.numberOfStudents
-                      }}
-                    />
+                    course={{
+                      id: course.courseCode,
+                      name: course.courseCode,
+                      instructorName: course.instructorName,
+                      dayOfSession: course.day,
+                      numberOfStudents: course.numberOfStudents
+                    }}
+                    showImage={false}
+                  />
+
                   </Link>
                 ))
               ) : (

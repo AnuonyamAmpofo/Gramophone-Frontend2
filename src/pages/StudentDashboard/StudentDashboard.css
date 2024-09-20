@@ -130,7 +130,7 @@
 }
 
 /* Timetable styles */
-.announcement {
+.announcementss {
   margin-top: 5px;
   margin-bottom: 10px;
   width: 100%;
@@ -159,19 +159,23 @@
 
   color: var(--gold-color);
 }
-.announcement tr {
+.announcementss tr {
+  
   border-bottom: 1.5px solid rgb(216, 216, 216);
 }
 .announcement .trombone {
   border: none;
 }
-.announcement td {
+.announcementss td {
   height: 40px;
 }
 .table-heading {
   color: rgb(113, 113, 113);
   font-weight: bold;
   text-transform: uppercase;
+}
+.heading{
+  width: 100%;
 }
 
 @media (max-width: 790px) {
