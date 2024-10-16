@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import Announcement from "../../components/Timetable/Announcement";
+import InstructorComments from "../../components/Timetable/InstructorComments"; // New component
 import NavbarStudent from "../../components/Navbar2/NavbarStudent";
 
 const StudentDashboard = () => {
@@ -74,9 +75,7 @@ const StudentDashboard = () => {
           {courses.map((course, index) => (
             <Link key={index} to={`/loggedIn#${course.courseCode}`} className="course-link">
               <article className="sessions">
-                
                 <h2>{course.courseCode}</h2>
-                
                 <div>
                   <p>Instructor</p>
                   <h3>{course.instructorName}</h3>
@@ -90,12 +89,13 @@ const StudentDashboard = () => {
                   <h3>{course.time}</h3>
                 </div>
               </article>
-             </Link>
+            </Link>
           ))}
         </section>
         <section className="wrapper-2">
-          <h3>Instructor feedback & Announcements</h3>
+          <h3>Instructor Feedback & Announcements</h3>
           <Announcement />
+          <InstructorComments /> 
         </section>
       </div>
     </main>

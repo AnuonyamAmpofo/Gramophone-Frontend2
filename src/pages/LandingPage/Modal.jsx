@@ -56,7 +56,7 @@ const Modal = ({ show, handleClose }) => {
         setError("");
 
         if (data.type === "admin") {
-          navigate("/dashboard");
+          navigate("/adminDashboard");
         } else if (data.type === "student") {
           navigate("/studentDashboard");
         } else if (data.type === "instructor") {

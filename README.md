@@ -71,3 +71,12 @@ DONE
 
 *When the instructor clicks on an announcement, an overlaying modal box (like the one for login) should display "Edit" or "Delete" - DONE
 
+
+//Admin
+
+*Both the student button and student link on the dashboard should take the user to a students page.
+    The student page should list the students names with a filter to filter the students by maybe instrument, session day
+    -There should also be a search bar
+
+    Then on the right side, there should be an add/delete and update students column(so the page will be divided into 2).
+

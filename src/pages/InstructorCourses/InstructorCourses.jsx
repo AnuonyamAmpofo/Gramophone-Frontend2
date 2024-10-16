@@ -76,6 +76,7 @@ const InstructorCourses = () => {
                 {coursesByDay[day].map((course) => (
                   <Link key={course.courseCode} to={`/courseDetail/${course.courseCode}`} className="course-link">
                     <InstructorCourseCard
+                      className="Instructor-car"
                       course={{
                         id: course.courseCode,
                         name: course.courseCode,

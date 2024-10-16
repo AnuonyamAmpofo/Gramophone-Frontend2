@@ -128,4 +128,7 @@
   .Today{
     margin: 0 auto -1.5rem;
   }
+  .announcements_list {
+    padding-left: 1rem;
+  }
 }

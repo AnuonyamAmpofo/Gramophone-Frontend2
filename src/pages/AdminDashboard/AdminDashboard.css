@@ -13,6 +13,8 @@
   padding: 5rem;
   padding-top: 1.5rem;
   height: 100vh;
+  width: 100%;
+  background-color: var(--light-color);
 }
 .admin_section_1 article {
   margin-bottom: 1.5rem;
@@ -57,7 +59,7 @@
   padding: 3rem 0;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 300ms;
+  /* transition: transform 300ms; */
 }
 .admin_control div:hover {
   transform: scale(1.05);

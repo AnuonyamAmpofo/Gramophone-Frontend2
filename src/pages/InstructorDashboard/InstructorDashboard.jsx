@@ -60,7 +60,7 @@ const InstructorDashboard = () => {
         setTodayCourses(coursesToday);
 
         // Fetch announcements
-        const announcementsResponse = await fetch("https://ampsgramophone-backend.vercel.app/instructors/announcements", {
+        const announcementsResponse = await fetch("https://ampsgramophone-backend.vercel.app/instructors/announcement/getannouncements", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const InstructorDashboard = () => {
                       dayOfSession: course.day,
                       numberOfStudents: course.numberOfStudents
                     }}
-                    showImage={false}
+                    showImage={true}
                   />
 
                   </Link>
@@ -137,3 +137,5 @@ const InstructorDashboard = () => {
 };
 
 export default InstructorDashboard;
+
+

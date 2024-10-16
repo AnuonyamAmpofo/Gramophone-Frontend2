@@ -3,6 +3,7 @@ import "../../pages/StudentDashboard/StudentDashboard.css";
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
+  const [visibleAnnouncements, setVisibleAnnouncements] = useState(3);
 
   useEffect(() => {
     const fetchAnnouncements = async () => {
@@ -27,7 +28,6 @@ const Announcement = () => {
         }
 
         const data = await response.json();
-        console.log("Announcements Data:", data);
         setAnnouncements(data.announcements);
       } catch (err) {
         console.error("Error fetching announcements:", err);
@@ -36,6 +36,12 @@ const Announcement = () => {
 
     fetchAnnouncements();
   }, []);
+
+  const visible = announcements.slice(0, visibleAnnouncements);
+
+  const handleShowMore = ()=>{
+    setVisibleAnnouncements(visibleAnnouncements + 5);
+  }
 
   return (
     <table className="announcementss">
@@ -47,14 +53,14 @@ const Announcement = () => {
         </tr>
       </thead>
       <tbody>
-        {announcements.length > 0 ? (
-          announcements.map((announcement, index) => (
+        {visible.length > 0 ? (
+          visible.map((announcement, index) => (
             <tr key={index}>
               <td className="main-column">
                 {announcement.courseCode || "Admin"}
               </td>
               <td className="middle-column">{announcement.content}</td>
-              <td className="last-column">{announcement.time}</td>
+              <td className="last-column">{new Date(announcement.time).toLocaleString()}</td>
             </tr>
           ))
         ) : (
@@ -62,6 +68,10 @@ const Announcement = () => {
             <td colSpan="3">No announcements available</td>
           </tr>
         )}
+        {announcements.length > visibleAnnouncements&& (
+        <button onClick={handleShowMore} className="show-more-btn">Show More</button>
+      )}
+
       </tbody>
     </table>
   );

@@ -60,7 +60,7 @@ function StudentCourses() {
         ) : (
           courses.map((course) => (
             <CourseCard course={course} key={course.courseCode} />
-          ))
+        ))
         )}
       </main>
     </div>

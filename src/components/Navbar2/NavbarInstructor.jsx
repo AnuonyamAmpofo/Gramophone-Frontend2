@@ -59,9 +59,6 @@ const NavbarInstructor = () => {
           Courses
         </Link>
         <Link className="links" to="/">
-          Annoucements
-        </Link>
-        <Link className="links" to="/">
           Profile
         </Link>
         <div>
