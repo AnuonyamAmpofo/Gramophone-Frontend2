@@ -1,20 +1,31 @@
 .student_tab_main {
   width: 100%;
+  /* display: flex; */
+  /* flex-direction: row; */
 }
-.student_tab_main section {
-  padding: 5rem;
+.student_tab_main {
+  padding: 2rem ;
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.student_tab_main section h1 {
+.student_tab_subMain{
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+.student_tab_subMain section{
+  width: 48%;
+}
+.student_tab_main  h1 {
   font-size: 3rem;
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .student_tab_main article {
-  width: 100%;
+  padding-bottom: 1rem;
 }
 
 .student_tab_main article h2 {
@@ -22,37 +33,83 @@
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+.list-filter{
+  display: flex;
+  justify-content: space-between;
+}
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* margin-bottom: 20px; */
+
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#instrumentFilter :hover{
+  cursor: pointer;
+}
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-top: 20px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.students-table th, .students-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
 .add_students,
-.assign_students,
+.assign_student,
 .delete_students {
   width: 100%;
   margin: 0;
+  margin-bottom: 2rem;
 }
-.assign_students {
+.assign_student {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  /* gap: 1rem; */
+  flex-wrap: wrap;
+  /* width: 100% */
 }
 
-.add_students div {
+
+.add_students div, .assign_student div {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
 }
+
 .add_students div input,
+.assign_student div input,
 .delete_students input {
   height: 2.5rem;
   min-width: 15rem;
 }
-.assign_students input {
-  height: 2.5rem;
-  width: 15rem;
-}
 
-.add_students select,
-.assign_students select {
+
+.add_students select
+ {
   border: none;
   outline: none;
   width: 15rem;
@@ -60,12 +117,23 @@
   border-radius: 5px;
   box-shadow: 0px 0px 2px gray;
 }
-.assign_students input {
+.assign_student select{
+  margin-bottom: 10px;
+  height: 2.5rem;
+  min-width: 15rem;
+  border: none;
+  outline: none;
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px gray
+}
+
+.assign_student input {
   align-self: center;
-  margin-top: 6px;
 }
 .add_students select:focus,
-.assign_students select:focus {
+.assign_student select:focus {
   border: 2px solid dodgerblue;
 }
 
@@ -73,7 +141,7 @@
   margin-bottom: 1rem;
 }
 .add_students button,
-.assign_students button,
+.assign_student button,
 .delete_students button,
 .student_details_section button {
   padding-left: 1rem;
@@ -113,7 +181,7 @@
 
 @media (max-width: 590px) {
   .add_students button,
-  .assign_students button,
+  .assign_student button,
   .delete_students button {
     margin: 0;
     margin-top: 1rem;
@@ -139,7 +207,7 @@
   .add_students select {
     margin-top: 1rem;
   }
-  .assign_students button {
+  .assign_student button {
     margin-top: 0;
   }
 }

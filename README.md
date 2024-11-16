@@ -63,7 +63,7 @@ The announcements on the student Dashboard should have 3 parts and justified spa
 
 DONE
 
-*Create a part for individual comments for students by instructor and admin as well - 
+*Create a part for individual comments for students by instructor and admin as well - DONE
     ~When the instructor clicks on the student in the list of students, a dropdown menu appears with the details of the student, and a portion for comments with a post comment button. - DONE
 
 
@@ -74,9 +74,15 @@ DONE
 
 //Admin
 
-*Both the student button and student link on the dashboard should take the user to a students page.
+*Both the student button and student link on the dashboard should take the user to a students page. - DONE
     The student page should list the students names with a filter to filter the students by maybe instrument, session day
-    -There should also be a search bar
 
-    Then on the right side, there should be an add/delete and update students column(so the page will be divided into 2).
 
+    Then on the right side, there should be an add/delete and update students column(so the page will be divided into 2). -DONE
+
+
+
+
+
+*Don't forget about the update Student section
+*Work on the css for the reduced screen-size (mobile phones)

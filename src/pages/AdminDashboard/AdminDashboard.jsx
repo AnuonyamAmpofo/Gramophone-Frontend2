@@ -1,12 +1,17 @@
 // import React from 'react'
 import { useEffect , useState} from "react";
 import NavbarAdmin from "../../components/Navbar2/NavbarAdmin";
+import { ClipLoader, ScaleLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [students, setStudents] = useState('');
   const [instructors, setInstructors] = useState('');
   const [courses, setCourses] = useState('');
+  const [isloadNumCourses, setIsLoadNumCourses] =useState(true);
+  const [isloadNumInstructors, setIsLoadNumInstructors] =useState(true);
+  const [isloadNumStudents, setIsLoadStudents] =useState(true);
 
   useEffect(()=>{
     const fetchNumStudents = async()=>{
@@ -34,6 +39,9 @@ const AdminDashboard = () => {
       }
       catch(error){
         console.error("Error fetching students:", error);
+      }
+      finally{
+        setIsLoadStudents(false);
       }
     };
     const fetchNumInstructors = async()=>{
@@ -65,6 +73,9 @@ const AdminDashboard = () => {
       catch(error){
         console.error("Error Fetching Instructor Number:", error);
       }
+      finally{
+        setIsLoadNumInstructors(false);
+      }
     };
 
     const fetchNumCourses = async()=>{
@@ -94,6 +105,9 @@ const AdminDashboard = () => {
       catch(error){
         console.error("Error fetching Courses:", error)
       }
+      finally{
+        setIsLoadNumCourses(false);
+      }
 
     };
     fetchNumCourses();
@@ -110,22 +124,48 @@ const AdminDashboard = () => {
           <div className="admin_top">
             <div>
               <p>Total number of courses</p>
-              <h3>{courses.length}</h3>
+              {isloadNumCourses ? (
+                // <div className="loader">
+                <ScaleLoader color={"#463c06"} size={30} />
+              // </div>
+              ):(
+                <h3>{courses.length}</h3>
+              )}
+              
             </div>
             <div>
               <p>Number of tutors</p>
+              {isloadNumInstructors ? (
+                // <div className="loader">
+                <ClipLoader color={"#463c06"} size={30} />
+              // </div>
+              ):(
               <h3>{instructors.length}</h3>
+              )}
             </div>
             <div>
               <p>Number of students enrolled</p>
+              {isloadNumStudents ? (
+                // <div className="loader">
+                <ClipLoader color={"#463c06"} size={30} />
+              // </div>
+              ):(
               <h3>{students.length}</h3>
+              )}
             </div>
           </div>
           {/*  */}
           <div className="admin_control">
+          <Link className="admin-tabs" to ="/adminStudents">
             <div>STUDENTS</div>
-            <div>INSTRUCTORS</div>
+               </Link>
+
+               <Link className="admin-tabs" to ="/adminStudents">
+                  <div>INSTRUCTORS</div>
+              </Link>
+              <Link className= "admin-tabs" to ="/adminStudents">
             <div>COURSES</div>
+            </Link>
           </div>
         </article>
         <article className="annoucements_section">
