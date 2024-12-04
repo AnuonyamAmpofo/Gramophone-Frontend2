@@ -62,7 +62,7 @@ const NavbarAdmin = () => {
         <Link className="links" to="/adminStudents">
           Students
         </Link>
-        <Link className="links" to="/">
+        <Link className="links" to="/adminInstructors">
           Instructors
         </Link>
         <Link className="links" to="/">

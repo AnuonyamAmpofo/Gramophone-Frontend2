@@ -125,20 +125,17 @@ const AdminDashboard = () => {
             <div>
               <p>Total number of courses</p>
               {isloadNumCourses ? (
-                // <div className="loader">
+
                 <ScaleLoader color={"#463c06"} size={30} />
-              // </div>
               ):(
                 <h3>{courses.length}</h3>
               )}
               
             </div>
             <div>
-              <p>Number of tutors</p>
+              <p>Number of Instructors</p>
               {isloadNumInstructors ? (
-                // <div className="loader">
                 <ClipLoader color={"#463c06"} size={30} />
-              // </div>
               ):(
               <h3>{instructors.length}</h3>
               )}
@@ -146,9 +143,7 @@ const AdminDashboard = () => {
             <div>
               <p>Number of students enrolled</p>
               {isloadNumStudents ? (
-                // <div className="loader">
                 <ClipLoader color={"#463c06"} size={30} />
-              // </div>
               ):(
               <h3>{students.length}</h3>
               )}

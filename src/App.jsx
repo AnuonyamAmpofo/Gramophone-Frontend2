@@ -12,6 +12,7 @@ import InstructorCourses from "./pages/InstructorCourses/InstructorCourses";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Footer from "./components/Footer/Footer";
 import AdminStudentTab from "./pages/AdminStudentTab/AdminStudentTab";
+import AdminInstructorTab from "./pages/AdminInstructor/AdminInstructorTab";
 import CourseDetail from "./pages/InstructorCourses/CourseDetail"; // Import the CourseDetail component
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/instructorCourses" element={<InstructorCourses />} />
             <Route path="/adminDashboard" element={<AdminDashboard />} />
             <Route path="/adminStudents" element={<AdminStudentTab />} />
+            <Route path="/adminInstructors" element={<AdminInstructorTab/>} />
             <Route path="/courseDetail/:courseCode" element={<CourseDetail />} />
           </Routes>
         </main>

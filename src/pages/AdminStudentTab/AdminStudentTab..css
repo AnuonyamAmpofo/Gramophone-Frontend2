@@ -3,6 +3,8 @@
   /* display: flex; */
   /* flex-direction: row; */
 }
+
+
 .student_tab_main {
   padding: 2rem ;
   width: 100%;
@@ -32,6 +34,10 @@
   color: #000;
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.breadcrumbs {
+  display: none;
 }
 .list-filter{
   display: flex;
@@ -75,6 +81,9 @@
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+/* .students-table th, .students-table td :hover{
+  cursor:grab;
+} */
 
 .add_students,
 .assign_student,
@@ -102,11 +111,16 @@
 
 .add_students div input,
 .assign_student div input,
+.update input,
 .delete_students input {
+
   height: 2.5rem;
   min-width: 15rem;
 }
-
+.custom-dropdown option {
+  width: 200px; 
+  /* position: fixed */
+}
 
 .add_students select
  {
@@ -117,7 +131,7 @@
   border-radius: 5px;
   box-shadow: 0px 0px 2px gray;
 }
-.assign_student select{
+.assign_student select, .update select{
   margin-bottom: 10px;
   height: 2.5rem;
   min-width: 15rem;
@@ -132,6 +146,10 @@
 .assign_student input {
   align-self: center;
 }
+.update input{
+  align-self: center;
+  padding: 0 1rem;
+}
 .add_students select:focus,
 .assign_student select:focus {
   border: 2px solid dodgerblue;
@@ -143,6 +161,7 @@
 .add_students button,
 .assign_student button,
 .delete_students button,
+.update button,
 .student_details_section button {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -179,35 +198,124 @@
   /* background-color: tan; */
 }
 
+/* Adjust for mobile view */
 @media (max-width: 590px) {
+  .student_tab_main {
+    padding: 2rem;
+    gap: 1rem;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .student_tab_subMain {
+    flex-direction: column; /* Switch to top-to-bottom layout */
+    gap: 2rem; /* Add spacing between sections */
+  }
+
+  .student_tab_subMain section {
+    width: 100%; /* Make each section full-width */
+  }
+
+  .student_tab_main h1 {
+    font-size: 2.5rem; /* Adjust heading size for smaller screens */
+  }
+  .student_tab_main article{
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+  /* .breadcrumbs html {
+    scroll-behavior: smooth;
+  } */
+  .breadcrumbs {
+    display: block;
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    /* margin: 10px 0; */
+    color: #555; /* Optional: Change color to match your theme */
+  }
+
+  .breadcrumbs a {
+    color: #007bff; /* Optional: Add link color */
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  .filter-group{
+    /* gap: 250px */
+    flex-wrap: wrap;
+    
+  }
+
+  .filter-group select{
+    display: flex;
+    /* flex-wrap: wrap; */
+  }
+  .instrumentFilter{
+    /* width: 10px */
+  }
+
   .add_students button,
   .assign_student button,
-  .delete_students button {
+  .delete_students button,
+  .update button,
+  .student_details_section button {
     margin: 0;
     margin-top: 1rem;
+    width: 100%; /* Ensure buttons span the width */
   }
+
   .add_students input,
   .add_students select,
-  .delete_students input,
-  .student_details_section button {
-    width: 100%;
+  .update select,
+  .assign_student,
+  .assign_student input,
+  .assign_student select,
+  .delete_students input {
+    width: 100%; /* Ensure inputs span the width */
+    /* padding: 1rem  */
   }
-  .add_students select {
-    margin-top: 1rem;
+  
+
+  .students-table{
+    width: 96%;
+    margin: auto;
+    flex-wrap: wrap;
   }
+  .students-table th, .students-table td{
+    padding:10px;
+    margin: 0 auto
+  }
+
   .student_details {
+    width: 100%; /* Adjust details box to fit smaller screens */
+  }
+  .update {
+    width: 100%
+  }
+  .update input{
     width: 100%;
+    display: flex;
+    min-width: 15rem;
+  }
+  .students-table{
+    margin: 0 auto;
   }
 }
 
+/* Additional adjustments for very small screens */
 @media (max-width: 500px) {
-  .student_tab_main section {
-    padding: 1rem;
+  .student_tab_main h1 {
+    font-size: 2rem;
   }
-  .add_students select {
-    margin-top: 1rem;
+
+  .add_students select,
+  .assign_student select,
+  .delete_students input {
+    margin-top: 1rem; 
   }
-  .assign_student button {
-    margin-top: 0;
+  .students-table{
+    margin: 0 auto;
   }
 }

@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import NavbarAdmin from "../../components/Navbar2/NavbarAdmin";
-import "./AdminStudentTab..css";
+import "../AdminStudentTab/AdminStudentTab..css";
 import React, { useEffect, useState } from "react";
 import { ScaleLoader } from "react-spinners";
 
-const AdminStudentTab = () => {
+const AdminInstructorTab = () => {
   const [newStudent, setNewStudent] = useState();
   const [studentID, setStudentID] = useState();
   const { register, handleSubmit, reset } = useForm();
@@ -429,7 +429,7 @@ const AdminStudentTab = () => {
       
       <section className="student_tab_main">
 
-        <h1>STUDENTS</h1>
+        <h1>INSTRUCTORS</h1>
         <section className="student_tab_subMain">
 
         {/*breadcrumbs*/}
@@ -806,4 +806,4 @@ const AdminStudentTab = () => {
   );
 };
 
-export default AdminStudentTab;
+export default AdminInstructorTab;

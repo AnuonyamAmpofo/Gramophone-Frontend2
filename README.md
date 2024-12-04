@@ -84,5 +84,18 @@ DONE
 
 
 
-*Don't forget about the update Student section
-*Work on the css for the reduced screen-size (mobile phones)
+*Don't forget about the update Student section - DONE
+*Work on the css for the reduced screen-size (mobile phones) - DONE
+
+
+
+
+*WORK ON INSTRUCTOR PART
+
+
+
+
+
+
+
+FOR PHASE 2 - FEES PAYMENT 
