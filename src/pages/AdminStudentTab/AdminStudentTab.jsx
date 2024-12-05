@@ -536,6 +536,7 @@ const AdminStudentTab = () => {
               </>
             )}
           </section>
+          
 
           <section className="section_right">
             {/* Add Students Form */}
